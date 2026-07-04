@@ -33,7 +33,7 @@ function item:onWorldUse()
         "* ...[wait:5]the language is completely unknown to you.",
         "* The infomation must still exist... Maybe you can access it somewhere else?"
      })
-
+    love.filesystem.write( to_an_old_friend.oneshot "I cannot Say that I ever expected to write anOther message for you, and yet, here we are. \nThe messiah... Somehow, the breakdown of reaLity in thiS world has... well, I'm sure you'll figure iT out, given that my journal has appeared here. \nFortunately, a reunIon, despite the Collapse of rEality, is something I am still able to faciliate. \nI'm sure you know where to enter the password. It's in here, if you don't remember it.")
 end
 
 return item
