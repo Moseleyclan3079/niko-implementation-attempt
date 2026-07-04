@@ -113,3 +113,4 @@ May contain Deltarune.
 MAY BE VERY, VERY INTERESTING.
 Hello! I am in the warning.txt!
 Hey, I am also in warning.txt!
+The amount of shots you have is not equal to one.
