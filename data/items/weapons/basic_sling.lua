@@ -55,7 +55,7 @@ function item:init()
         calypso = {
             calypso = "...Yer toys confuse me, Lu.",
            jamm = "It's not a toy!",
-        }
+        },
         noel = "Crumbling, Pathetic, Embarrassing...",
         ceroba = {
             ceroba = "I thought only kids use these?",
