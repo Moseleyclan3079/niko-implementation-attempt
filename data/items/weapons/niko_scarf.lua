@@ -1,0 +1,60 @@
+local item, super = Class(Item, "purple_scarf")
+
+function item:init()
+    super.init(self)
+
+    -- Display name
+    self.name = "Purple Scarf"
+
+    -- Item type (item, key, weapon, armor)
+    self.type = "weapon"
+    -- Item icon (for equipment)
+    self.icon = "ui/menu/icon/scarf"
+
+    -- Battle description
+    self.effect = ""
+    -- Shop description
+    self.shop = ""
+    -- Menu description
+    self.description = "Niko's scarf, empowered by \nthe dark world."
+
+    -- Default shop price (sell price is halved)
+    self.price = 100
+    -- Whether the item can be sold
+    self.can_sell = true
+
+    -- Consumable target mode (ally, party, enemy, enemies, or none)
+    self.target = "none"
+    -- Where this item can be used (world, battle, all, or none)
+    self.usable_in = "all"
+    -- Item this item will get turned into when consumed
+    self.result_item = nil
+    -- Will this item be instantly consumed in battles?
+    self.instant = false
+
+    -- Equip bonuses (for weapons and armor)
+    self.bonuses = {
+        attack = 0,
+    }
+    -- Bonus name and icon (displayed in equip menu)
+    self.bonus_name = nil
+    self.bonus_icon = nil
+
+    -- Equippable characters (default true for armors, false for weapons)
+    self.can_equip = {
+        ralsei = true,
+    }
+
+    -- Character reactions
+    self.reactions = {
+        hero = "Already comfortable enough.",
+        susie = "No. Just... no.",
+        ralsei = "It's just like my Red Scarf!",
+        noelle = "Huh? No, I'm not cold.",
+        jamm = "How is this a weapon?",
+		dess = "fgdsfgsdfgsdf",
+        ceroba = "Cloth as a weapon? I'd rather not."
+    }
+end
+
+return item
