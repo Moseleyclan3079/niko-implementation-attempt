@@ -92,6 +92,7 @@ function item:init()
             noel = "I thought cantalopes were GREEN, not RED.",
             jamm = "Huh... That says a lot.",
             calypso = "(I choose not to comment...)",
+            niko = "Did you say something, Brenda?",
         },
 	    jamm = {
 	    	jamm = "I get the taste...",
