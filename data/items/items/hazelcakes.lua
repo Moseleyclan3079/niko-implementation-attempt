@@ -16,6 +16,7 @@ function item:init()
     self.heal_amount = 80
     -- if Niko is in the party it fully heals them specifically since its their fav
     -- and if dess is in the party she steals everyone's pancakes, she heals 240 hp but everyone else heals 0 
+    -- I haven't figured out how to implement yet.
 
     self.price = 2
     self.can_sell = false
