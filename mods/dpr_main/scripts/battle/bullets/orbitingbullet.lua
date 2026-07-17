@@ -49,7 +49,7 @@ function OrbBullet:update()
 end
 
 function OrbBullet:onCollide(soul)
-	if self.supertimer > 100 and soul.inv_timer == 0 then
+	if self.supertimer > 100 and Game.inv_frames <= 0 then
 		self:onDamage(soul)
 	end
 end

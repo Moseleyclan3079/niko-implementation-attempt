@@ -49,7 +49,7 @@ function StarwingsHyper:onStart()
             Assets.playSound("wing")
             Assets.playSound("starhyper", 0.7, (1 + MathUtils.random(0.2)) - MathUtils.random(0.3))
             local star = self:spawnBullet("starwalker/starbullet_hyper", self.starwalker.x - 20, self.starwalker.y - 40)
-            star.inv_timer = 10/30
+            star.inv_frames = 10
             star.physics.direction = math.atan2(Game.battle.soul.y - star.y, Game.battle.soul.x - star.x)
             star.physics.speed = 8
             star.physics.friction = -0.25

@@ -41,7 +41,7 @@ end
 
 function HomingBullet:onCollide(soul)
 	if self.homing_timer <= 0 then
-		if soul.inv_timer == 0 then
+		if Game.inv_frames <= 0 then
 			self:onDamage(soul)
 		end
 

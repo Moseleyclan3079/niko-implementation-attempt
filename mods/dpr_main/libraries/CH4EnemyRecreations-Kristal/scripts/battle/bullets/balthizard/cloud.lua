@@ -159,7 +159,11 @@ function Cloud:onDamage(soul)
         end
     end
 
-    soul.inv_timer = self.inv_timer
+    local inv_frames = self:getInvulnFrames()
+    if target ~= "ALL" then
+        inv_frames = Game:applyInvulnBonuses(inv_frames)
+    end
+    Game:setInvulnFrames(inv_frames)
 
     if self.manager then
         self.manager.hurt_notify_timer = self.manager.hurt_notify_timer - DTMULT

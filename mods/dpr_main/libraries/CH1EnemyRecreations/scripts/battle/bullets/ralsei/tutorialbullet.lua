@@ -12,7 +12,7 @@ function TutorialBullet:init(x, y)
     self.tp = 2
     self.time_bonus = 5
 
-    self.inv_timer = 120/30
+    self.inv_frames = 120
 
     self.special = 0
 end

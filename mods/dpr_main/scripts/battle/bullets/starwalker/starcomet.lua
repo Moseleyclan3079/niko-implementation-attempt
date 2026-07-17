@@ -44,7 +44,7 @@ function Bullet:destroy()
     for i = -1, 1 do
         local offset = i * 15
         local star = self.wave:spawnBullet(self.starwalker:makeBullet(self.x, self.y))
-        star.inv_timer = 10/30
+        star.inv_frames = 10
         star:setScale(1)
         star.physics.direction = math.atan2(Game.battle.soul.y - star.y, Game.battle.soul.x - star.x) + math.rad(offset)
         star.physics.speed = 5

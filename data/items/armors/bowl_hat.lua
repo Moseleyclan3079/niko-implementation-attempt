@@ -4,7 +4,7 @@ function item:init()
     super.init(self)
 
     -- Display name
-    self.name = "Bowl Hat"
+    self.name = "BowlHat"
 
     -- Item type (item, key, weapon, armor)
     self.type = "armor"
@@ -53,11 +53,18 @@ function item:init()
         noelle = "How it's not falling off?",
         dess = "Yummy wood",
         jamm = "Why?",
-        calypso = "...Ye gotta be kidding.",
+        calypso = {
+            calypso = "...Ye gotta be kidding.",
+            len = "...",
+        },
         brenda = "Its soo sturdy!",
         mario = "Weege!",
         noel = "How can this defend at all?",
-        ceroba = "A bowl? Are you serious?",
+        ceroba = {
+            ceroba = "A bowl? Are you serious?",
+            len = "...",
+        },
+        len = "Cool armor! wonder who made it.",
     }
 end
 

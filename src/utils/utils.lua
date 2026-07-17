@@ -177,7 +177,7 @@ end
 --- Utils.hook(Object, "setPosition", function(orig, obj, x, y)
 ---     -- calls the original code (setting its position as normal)
 ---     orig(obj, x, y)
----     
+---
 ---     -- sets 'new_x' and 'new_y' variables for the object instance
 ---     obj.new_x = x
 ---     obj.new_y = y
@@ -859,37 +859,6 @@ function Utils.between(val, a, b, include)
     end
 end
 
-local performance_stack = {}
-
-function Utils.pushPerformance(name)
-    table.insert(performance_stack, 1, { love.timer.getTime(), name })
-end
-
-function Utils.popPerformance()
-    local c = love.timer.getTime()
-    local t = table.remove(performance_stack, 1)
-    local name = t[2]
-    if PERFORMANCE_TEST then
-        PERFORMANCE_TEST[name] = PERFORMANCE_TEST[name] or {}
-        table.insert(PERFORMANCE_TEST[name], c - t[1])
-    end
-end
-
-function Utils.printPerformance()
-    for k, times in pairs(PERFORMANCE_TEST) do
-        if k ~= "Total" and #times > 0 then
-            local n = 0
-            for _, v in ipairs(times) do
-                n = n + v
-            end
-            Kristal.Console:log("[" .. PERFORMANCE_TEST_STAGE .. "] " .. k .. " | " .. #times .. " calls | " .. (n / #times) .. " | Total: " .. n)
-        end
-    end
-    if PERFORMANCE_TEST["Total"] then
-        Kristal.Console:log("[" .. PERFORMANCE_TEST_STAGE .. "] Total: " .. PERFORMANCE_TEST["Total"][1])
-    end
-end
-
 ---
 --- Merges two colors based on a percentage between 0 and 1.
 ---
@@ -936,7 +905,7 @@ function Utils.isPolygonClockwise(points)
     return sum > 0
 end
 
---- @alias linefailure
+---@alias linefailure
 ---| "The lines are parallel."
 ---| "The lines don't intersect."
 ---| "The lines are the same."

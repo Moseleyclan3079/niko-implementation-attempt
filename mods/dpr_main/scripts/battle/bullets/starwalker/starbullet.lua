@@ -6,7 +6,7 @@ function StarBullet:init(x, y)
     self.grazed = true
     self.graphics.spin = math.rad(45 / 4)
 
-    self.inv_timer = 1 / 30
+    self.inv_frames = 1
     self.destroy_on_hit = false
 end
 

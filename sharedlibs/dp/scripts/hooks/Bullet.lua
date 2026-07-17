@@ -17,13 +17,21 @@ function Bullet:onDamage(soul)
             local target = self:getTarget()
             if not self.pierce then
                 local battlers = Game.battle:hurt(damage, false, target, self:shouldSwoon(damage, target, soul))
-                soul.inv_timer = self:getInvulnTime()
+                local inv_frames = self:getInvulnFrames()
+                if target ~= "ALL" then
+                    inv_frames = Game:applyInvulnBonuses(inv_frames)
+                end
+                Game:setInvulnFrames(inv_frames)
                 soul:onDamage(self, damage)
                 return battlers
             end
             Game.battle:pierce(damage, false, target)
         end
-        soul.inv_timer = self:getInvulnTime()
+        local inv_frames = self:getInvulnFrames()
+        if target ~= "ALL" then
+            inv_frames = Game:applyInvulnBonuses(inv_frames)
+        end
+        Game:setInvulnFrames(inv_frames)
         soul:onDamage(self, damage)
     end
     return {}

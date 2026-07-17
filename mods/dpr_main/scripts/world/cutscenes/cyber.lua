@@ -259,12 +259,16 @@ local cyber = {
 					table.insert(teas, "Pauling") 
 					table.insert(tea_items, "pauling_tea") 
 				end
+				if Game:hasPartyMember("calypso") then 
+					table.insert(teas, "Calypso") 
+					table.insert(tea_items, "calypso_tea") 
+				end
 				local tea_choice = cutscene:choicer(teas)
 				
 				local item = tea_items[tea_choice]
 			    local possible_item = "hero_tea" or "kris_tea" or "susie_tea" or "ralsei_tea" or 
 			    "noelle_tea" or "dess_tea" or "jamm_tea" or "ceroba_tea" or 
-			    "mario_tea" or "pauling_tea"
+			    "mario_tea" or "pauling_tea" or "calypso_tea"   -- what are we doing with this
 			    if not Game.inventory:addItem(item) then
 					Game.money = Game.money + cost
 				    cutscene:text("* Whoops!! No space to choose a flavor!!", nil, event)

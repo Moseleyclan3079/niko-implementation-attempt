@@ -249,7 +249,7 @@ function DiceBullet:onCollide(soul)
                 self.noda = false
             end
         else
-            if soul.inv_timer == 0 and self.noda == false then
+            if Game.inv_frames <= 0 and self.noda == false then
                 self:onDamage(soul)
             end
         end

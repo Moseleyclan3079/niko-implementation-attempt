@@ -21,7 +21,11 @@ function Flare:onDamage(soul)
     end
     if damage > 0 then
         local battlers = Game.battle:hurt(damage, false, self:getTarget())
-        soul.inv_timer = self.inv_timer
+        local inv_frames = self:getInvulnFrames()
+        if target ~= "ALL" then
+            inv_frames = Game:applyInvulnBonuses(inv_frames)
+        end
+        Game:setInvulnFrames(inv_frames)
         soul:onDamage(self, damage)
         return battlers
     end

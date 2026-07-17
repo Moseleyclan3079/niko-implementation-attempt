@@ -9,7 +9,7 @@ function SmallBullet:init(x, y, dir, speed, dx)
     -- Speed the bullet moves (pixels per frame at 30FPS)
     self.physics.speed = speed
     self.dx = dx
-    self.inv_timer = (1/4)
+    self.inv_frames = (30/4)
     self:setScale(10)
     self.destroy_on_hit = false
 end

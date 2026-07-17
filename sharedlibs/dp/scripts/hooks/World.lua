@@ -66,20 +66,16 @@ end
 
 function World:breakSoulShield()
     Assets.playSound("mirrorbreak")
-    self.soul:addChild(SoulExpandEffect())
-    local shard_x_table = {-2, 0, 2, 8, 10, 12}
-    local shard_y_table = {0, 3, 6}
-    for i = 1, 6 do
-        local x_pos = shard_x_table[((i - 1) % #shard_x_table) + 1]
-        local y_pos = shard_y_table[((i - 1) % #shard_y_table) + 1]
-        local shard = Sprite("player/heart_shard", self.soul.x + x_pos, self.soul.y + y_pos)
-        shard.physics.direction = math.rad(MathUtils.random(360))
-        shard.physics.speed = 7
-        shard.physics.gravity = 0.2
-        shard.layer = self.soul.layer
-        shard:play(5/30)
+    local expand_effect = Sprite(self.soul.sprite:getTexture(), 0, 0)
+    expand_effect:setOrigin(self.soul.sprite.origin_x, self.soul.sprite.origin_y)
+    expand_effect.graphics.grow = 0.1
+    expand_effect.graphics.fade = 0.05
+    expand_effect.graphics.fade_callback = function() expand_effect:remove() end
+    self.soul:addChild(expand_effect)
+    for i = 1, 5 do
+        local shard = HeartEffectShard(self.soul.x, self.soul.y)
+        shard.layer = self.soul.layer - 1
         self:addChild(shard)
-        shard:fadeOutAndRemove(1)
     end
 end
 

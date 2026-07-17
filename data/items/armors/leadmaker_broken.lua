@@ -49,7 +49,8 @@ function item:init()
         suzy = "Look! It's my hard work!",
 		jamm = "Well, what did I expect?",
         calypso = "Ye got greedy...",
-        ceroba = "Well that's trash now."
+        ceroba = "Well that's trash now.",
+        len = "Time to make... broken lead!",
     }
 end
 

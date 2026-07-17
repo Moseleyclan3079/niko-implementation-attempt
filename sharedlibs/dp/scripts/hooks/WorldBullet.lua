@@ -9,7 +9,9 @@ function WorldBullet:onDamage(soul)
         else
             self.world:hurtParty(self.damage)
         end
-        soul.inv_timer = self.inv_timer
+        local inv_frames = self:getInvulnFrames()
+        Game:setInvulnFrames(inv_frames)
+        soul:onDamage(self, damage)
     end
 end
 

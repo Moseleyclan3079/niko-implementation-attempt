@@ -48,6 +48,7 @@ function item:init()
         kris = true,
         hero = true,
         suzy = true,
+        len = true,
     }
 
     -- Character reactions
@@ -63,6 +64,7 @@ function item:init()
         calypso = "Ye got the wrong lass.",
         ceroba = "Chosen? I think you got the wrong person.",
         noel = "Overhyped, Underused, yet VERY Interesting...",
+        len = "Im the main character now!",
     }
 end
 

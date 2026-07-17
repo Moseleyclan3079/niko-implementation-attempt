@@ -43,6 +43,7 @@ function actor:init()
     self.animations = {
         ["eat"] = {"papereatereating", 0.1, false},
         ["bandana"] = {"papereaterbandana", 0.2, false},
+        ["bandana_struggle"] = {"papereaterbandanastruggle", 0.05, true},
         ["open"] = {"papereatereat", 0.2, false},
         ["close"] = {"papereaterclose", 0.1, false},
         ["idle"] = {"papereater", 0, false},

@@ -75,13 +75,25 @@ function spell:onCast(user, target)
 end
 
 function spell:getDamage(user, target, damage_bonus)
-    local damage = math.ceil((user.chara:getStat("magic") * 5) + (user.chara:getStat("attack") * 11) - (target.defense * 3)) + damage_bonus
-    damage = math.ceil(damage/target:getResistance("RUDE"))
+    local _, yellowhat_count = user.chara:checkArmor("yellowhat")
+
+    local magic_part = user.chara:getStat("magic") * (5 + (yellowhat_count * 0.5))
+    local attack_part = user.chara:getStat("attack") * (11 + yellowhat_count)
+
+    local damage = math.ceil(magic_part + attack_part - (target.defense * 3)) + damage_bonus
+
+    damage = math.ceil(damage / target:getResistance("RUDE"))
+
     if user.chara:checkWeapon("virobuster") then
         if target.health <= target.max_health / 2 then
             damage = damage * 2
         end
     end
+
+    if (Game.battle and Game.battle.headwind > 0) then
+        damage = math.floor(damage * 1.25)
+    end
+
     return damage
 end
 

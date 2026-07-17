@@ -56,6 +56,7 @@ function item:init()
         jamm = "It's just like...",
         ["jamm+marcy"] = "Just like yours, Marcy...",
         calypso = "Aye, who be this?",
+        len = "Feels important.",
     }
 
     self.light_item = "undertale/heart_locket"

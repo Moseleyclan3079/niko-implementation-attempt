@@ -50,7 +50,7 @@ function item:init()
         mario = false,
         noel = false,
         ceroba = false,
-        calypso = false
+        calypso = false,
     }
 
     -- Character reactions
@@ -66,6 +66,7 @@ function item:init()
         mario = "Mari-no",
         noel = "...",
         ceroba = "That's just childish.",
+        len = "*Chuckle*",
     }
 end
 

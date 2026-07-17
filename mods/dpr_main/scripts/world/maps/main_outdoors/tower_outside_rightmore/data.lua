@@ -1,7 +1,7 @@
 return {
-  version = "1.9",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.9.2",
+  tiledversion = "1.12.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -9,8 +9,8 @@ return {
   height = 20,
   tilewidth = 40,
   tileheight = 40,
-  nextlayerid = 16,
-  nextobjectid = 191,
+  nextlayerid = 17,
+  nextobjectid = 195,
   properties = {
     ["border"] = "tower_outside",
     ["music"] = "mainhub_outside",
@@ -20,25 +20,256 @@ return {
     {
       name = "blue_grass_lol",
       firstgid = 1,
-      filename = "../../../tilesets/blue_grass_lol.tsx"
+      class = "",
+      tilewidth = 20,
+      tileheight = 20,
+      spacing = 0,
+      margin = 0,
+      columns = 16,
+      image = "../../../../../assets/sprites/tilesets/blue_grass_lol.png",
+      imagewidth = 320,
+      imageheight = 260,
+      objectalignment = "unspecified",
+      tilerendersize = "grid",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 40,
+        height = 40
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 208,
+      tiles = {}
     },
     {
       name = "main_area",
       firstgid = 209,
-      filename = "../../../tilesets/main_area.tsx",
-      exportfilename = "../../../tilesets/main_area.lua"
+      class = "",
+      tilewidth = 20,
+      tileheight = 20,
+      spacing = 0,
+      margin = 0,
+      columns = 13,
+      image = "../../../../../assets/sprites/tilesets/main_area.png",
+      imagewidth = 260,
+      imageheight = 320,
+      objectalignment = "unspecified",
+      tilerendersize = "grid",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 40,
+        height = 40
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 208,
+      tiles = {}
     },
     {
       name = "cliffs",
       firstgid = 417,
-      filename = "../../../tilesets/cliffs.tsx",
-      exportfilename = "../../../tilesets/cliffs.lua"
+      class = "",
+      tilewidth = 20,
+      tileheight = 20,
+      spacing = 0,
+      margin = 0,
+      columns = 9,
+      image = "../../../../../assets/sprites/tilesets/cliffs.png",
+      imagewidth = 180,
+      imageheight = 140,
+      objectalignment = "unspecified",
+      tilerendersize = "grid",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 20,
+        height = 20
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 63,
+      tiles = {}
     },
     {
       name = "hub_objects",
       firstgid = 480,
-      filename = "../../../tilesets/hub_objects.tsx",
-      exportfilename = "../../../tilesets/hub_objects.lua"
+      class = "",
+      tilewidth = 130,
+      tileheight = 120,
+      spacing = 0,
+      margin = 0,
+      columns = 0,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 1,
+        height = 1
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 15,
+      tiles = {
+        {
+          id = 0,
+          image = "../../../../../assets/sprites/world/maps/hub/funfax_station.png",
+          width = 77,
+          height = 61
+        },
+        {
+          id = 1,
+          image = "../../../../../assets/sprites/world/events/money_hole.png",
+          width = 30,
+          height = 14
+        },
+        {
+          id = 2,
+          image = "../../../../../assets/sprites/world/maps/hub/desshouse.png",
+          width = 120,
+          height = 120
+        },
+        {
+          id = 3,
+          image = "../../../../../assets/sprites/world/maps/hub/plaque.png",
+          width = 130,
+          height = 66
+        },
+        {
+          id = 6,
+          image = "../../../../../assets/sprites/world/events/dark_stand.png",
+          width = 41,
+          height = 49
+        },
+        {
+          id = 7,
+          image = "../../../../../assets/sprites/world/events/light_stand.png",
+          width = 41,
+          height = 49
+        },
+        {
+          id = 9,
+          image = "../../../../../assets/sprites/world/events/mossy_stand.png",
+          width = 41,
+          height = 49
+        },
+        {
+          id = 10,
+          image = "../../../../../assets/sprites/world/events/void_fragment_1.png",
+          width = 32,
+          height = 32,
+          animation = {
+            {
+              tileid = 10,
+              duration = 200
+            },
+            {
+              tileid = 11,
+              duration = 200
+            },
+            {
+              tileid = 12,
+              duration = 200
+            },
+            {
+              tileid = 13,
+              duration = 200
+            },
+            {
+              tileid = 11,
+              duration = 200
+            },
+            {
+              tileid = 12,
+              duration = 200
+            },
+            {
+              tileid = 13,
+              duration = 200
+            },
+            {
+              tileid = 12,
+              duration = 200
+            },
+            {
+              tileid = 11,
+              duration = 200
+            },
+            {
+              tileid = 10,
+              duration = 200
+            },
+            {
+              tileid = 13,
+              duration = 200
+            },
+            {
+              tileid = 11,
+              duration = 200
+            }
+          }
+        },
+        {
+          id = 11,
+          image = "../../../../../assets/sprites/world/events/void_fragment_2.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 12,
+          image = "../../../../../assets/sprites/world/events/void_fragment_3.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 13,
+          image = "../../../../../assets/sprites/world/events/void_fragment_4.png",
+          width = 32,
+          height = 32
+        },
+        {
+          id = 14,
+          image = "../../../../../assets/sprites/world/events/blue_tree.png",
+          width = 60,
+          height = 60
+        },
+        {
+          id = 15,
+          image = "../../../../../assets/sprites/world/events/square_hole.png",
+          width = 30,
+          height = 30
+        },
+        {
+          id = 16,
+          image = "../../../../../assets/sprites/world/maps/hub/hub_vending.png",
+          width = 30,
+          height = 44
+        },
+        {
+          id = 17,
+          image = "../../../../../assets/sprites/world/maps/hub/warphub_door_edge.png",
+          width = 80,
+          height = 60
+        }
+      }
     }
   },
   layers = {
@@ -219,13 +450,14 @@ return {
         {
           id = 136,
           name = "npc",
-          class = "",
+          type = "",
           shape = "point",
           x = 240,
           y = 450,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["actor"] = "sneyek",
@@ -252,91 +484,98 @@ return {
         {
           id = 83,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 440,
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 95,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 640,
           width = 80,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 96,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 120,
           y = 680,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 97,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 200,
           y = 720,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 98,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 280,
           y = 760,
           width = 80,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 100,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 520,
           y = 760,
           width = 240,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 104,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 760,
           y = 760,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -348,13 +587,14 @@ return {
         {
           id = 105,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 360,
           y = 760,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -366,13 +606,14 @@ return {
         {
           id = 106,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 520,
           y = 760,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -384,13 +625,14 @@ return {
         {
           id = 108,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 200,
           y = 720,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -402,13 +644,14 @@ return {
         {
           id = 109,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 120,
           y = 680,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -420,13 +663,14 @@ return {
         {
           id = 110,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 280,
           y = 760,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -438,13 +682,14 @@ return {
         {
           id = 127,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 200,
           y = 360,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -456,13 +701,14 @@ return {
         {
           id = 134,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 160,
           y = 480,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -474,117 +720,126 @@ return {
         {
           id = 167,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 320,
           y = 440,
           width = 440,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 168,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 280,
           width = 1200,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 169,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 600,
           y = 160,
           width = 600,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 170,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 0,
           y = 160,
           width = 480,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 172,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 593,
           y = 80,
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 173,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 448,
           y = 80,
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 176,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 1080,
           y = 440,
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 177,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 760,
           y = 406,
           width = 320,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 178,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 760,
           y = 480,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -596,13 +851,14 @@ return {
         {
           id = 179,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 1040,
           y = 440,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -614,52 +870,56 @@ return {
         {
           id = 181,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 880,
           y = 680,
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 182,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 1080,
           y = 760,
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 183,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 800,
           y = 720,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 184,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 840,
           y = 720,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -671,19 +931,81 @@ return {
         {
           id = 185,
           name = "",
-          class = "",
+          type = "",
           shape = "polygon",
           x = 1000,
           y = 680,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
             { x = 80, y = 80 },
             { x = 0, y = 80 }
           },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 16,
+      name = "objects_tree",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 191,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 974,
+          y = 410,
+          width = 40,
+          height = 40,
+          rotation = 90,
+          opacity = 1,
+          gid = 49,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 192,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 854,
+          y = 410,
+          width = 40,
+          height = 120,
+          rotation = 90,
+          opacity = 1,
+          gid = 65,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 193,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 820,
+          y = 410,
+          width = 40,
+          height = 40,
+          rotation = 90,
+          opacity = 1,
+          gid = 81,
+          visible = true,
           properties = {}
         }
       }
@@ -705,13 +1027,14 @@ return {
         {
           id = 118,
           name = "transition",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = -40,
           y = 480,
           width = 40,
           height = 160,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "main_outdoors/tower_outside_right",
@@ -721,13 +1044,14 @@ return {
         {
           id = 133,
           name = "transition",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = -40,
           y = 200,
           width = 40,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "main_outdoors/tower_outside_right",
@@ -737,13 +1061,14 @@ return {
         {
           id = 140,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 160,
           y = 480,
           width = 160,
           height = 160,
           rotation = 0,
+          opacity = 1,
           gid = 56,
           visible = true,
           properties = {}
@@ -751,13 +1076,14 @@ return {
         {
           id = 141,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 160,
           y = 460,
           width = 160,
           height = 140,
           rotation = 0,
+          opacity = 1,
           gid = 56,
           visible = true,
           properties = {}
@@ -765,13 +1091,14 @@ return {
         {
           id = 142,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 422,
           y = 94,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           gid = 145,
           visible = true,
           properties = {}
@@ -779,13 +1106,14 @@ return {
         {
           id = 143,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 434,
           y = 74,
           width = 40,
           height = 40,
           rotation = 90,
+          opacity = 1,
           gid = 2147483762,
           visible = true,
           properties = {}
@@ -793,55 +1121,29 @@ return {
         {
           id = 145,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 416,
           y = 112,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           gid = 1073741972,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 147,
-          name = "",
-          class = "",
-          shape = "rectangle",
-          x = 978,
-          y = 408,
-          width = 40,
-          height = 40,
-          rotation = 90,
-          gid = 49,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 148,
-          name = "",
-          class = "",
-          shape = "rectangle",
-          x = 858,
-          y = 408,
-          width = 40,
-          height = 120,
-          rotation = 90,
-          gid = 65,
           visible = true,
           properties = {}
         },
         {
           id = 149,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 760,
           y = 480,
           width = 320,
           height = 160,
           rotation = 0,
+          opacity = 1,
           gid = 56,
           visible = true,
           properties = {}
@@ -849,13 +1151,14 @@ return {
         {
           id = 155,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 760,
           y = 460,
           width = 320,
           height = 140,
           rotation = 0,
+          opacity = 1,
           gid = 56,
           visible = true,
           properties = {}
@@ -863,13 +1166,14 @@ return {
         {
           id = 158,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 840,
           y = 400,
           width = 160,
           height = 80,
           rotation = 0,
+          opacity = 1,
           gid = 72,
           visible = true,
           properties = {}
@@ -877,13 +1181,14 @@ return {
         {
           id = 161,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 826,
           y = 420,
           width = 188,
           height = 20,
           rotation = 0,
+          opacity = 1,
           gid = 12,
           visible = true,
           properties = {}
@@ -891,41 +1196,29 @@ return {
         {
           id = 163,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 820,
           y = 420,
           width = 200,
           height = 20,
           rotation = 0,
+          opacity = 1,
           gid = 72,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 164,
-          name = "",
-          class = "",
-          shape = "rectangle",
-          x = 824,
-          y = 408,
-          width = 40,
-          height = 40,
-          rotation = 90,
-          gid = 81,
           visible = true,
           properties = {}
         },
         {
           id = 175,
           name = "transition",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 480,
           y = 60,
           width = 120,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "floor1/main_south",
@@ -935,13 +1228,14 @@ return {
         {
           id = 187,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 1000,
           y = 440,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           gid = 391,
           visible = true,
           properties = {}
@@ -949,13 +1243,14 @@ return {
         {
           id = 188,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 800,
           y = 440,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           gid = 2147484039,
           visible = true,
           properties = {}
@@ -963,13 +1258,14 @@ return {
         {
           id = 189,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 120,
           y = 80,
           width = 40,
           height = 40,
           rotation = 90,
+          opacity = 1,
           gid = 257,
           visible = true,
           properties = {}
@@ -977,16 +1273,34 @@ return {
         {
           id = 190,
           name = "",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 122,
           y = 80,
           width = 40,
           height = 40,
           rotation = 0,
+          opacity = 1,
           gid = 1073742066,
           visible = true,
           properties = {}
+        },
+        {
+          id = 194,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 840,
+          y = 360,
+          width = 160,
+          height = 40,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {
+            ["cutscene"] = "tower_outside.glassbridge",
+            ["solid"] = true
+          }
         }
       }
     },
@@ -1007,39 +1321,42 @@ return {
         {
           id = 64,
           name = "entry",
-          class = "",
+          type = "",
           shape = "point",
           x = 40,
           y = 560,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 132,
           name = "entry2",
-          class = "",
+          type = "",
           shape = "point",
           x = 40,
           y = 240,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
         {
           id = 186,
           name = "entry3",
-          class = "",
+          type = "",
           shape = "point",
           x = 540,
           y = 160,
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }

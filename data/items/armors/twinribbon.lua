@@ -44,7 +44,6 @@ function item:init()
 
     -- Equippable characters (default true for armors, false for weapons)
     self.can_equip = {
-        susie = false,
         dess = false,
 		jamm = false,
     }
@@ -52,7 +51,7 @@ function item:init()
     -- Character reactions
     self.reactions = {
         hero = "Actually, it fits.",
-        susie = "... it gets worse and worse.",
+        susie = "NOT the hair though.",
         ralsei = "Try around my horns!",
         noelle = "... nostalgic, huh.",
         dess = "ew i hate cute AND pink things",
@@ -62,6 +61,27 @@ function item:init()
         noel = "Two bracelets?",
         ceroba = "This here, that there... Nice.",
     }
+    self.susie_rejection = "... it gets worse and worse."
+end
+
+function item:canEquip(character, slot_type, slot_index)
+    if character.id == "susie" and not character:getFlag("can_wear_ribbons", false) then
+        return false
+    end
+
+    return super.canEquip(self, character, slot_type, slot_index)
+end
+
+function item:getReaction(user_id, reactor_id)
+    if user_id == "susie" and reactor_id == "susie" then
+        local susie = Game:getPartyMember("susie")
+
+        if not susie:getFlag("can_wear_ribbons", false) then
+            return self.susie_rejection
+        end
+    end
+
+    return super.getReaction(self, user_id, reactor_id)
 end
 
 return item

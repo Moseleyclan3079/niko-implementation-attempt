@@ -76,6 +76,9 @@ end
 
 function spell:getDamage(user, target, damage_bonus)
     local damage = math.ceil((user.chara:getStat("magic") * 3) + (user.chara:getStat("attack") * 8) - (target.defense * 3)) + damage_bonus
+    if (Game.battle and Game.battle.headwind > 0) then
+        damage = math.floor(damage * 1.25)
+    end
     return damage
 end
 

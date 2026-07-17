@@ -40,7 +40,7 @@ function SpinHeart:init(x, y, dir, speed)
     self.time_bonus = 0
     self.grazed = false
     self.graze_timer = 0
-    self.inv_timer = 2
+    self.inv_frames = 60
 
     self.con = 0
     self.htimer = 0

@@ -35,7 +35,7 @@ function character:init()
 
     self.lw_portrait = "face/jamm/neutral"
 
-    self:addSpell("supersling")
+    self:addSpell("healsling")
     self:addSpell("darksling")
     self:addSpell("numbshot")
 
@@ -104,6 +104,16 @@ function character:init()
             "ELEC"
         }
     end
+end
+
+function character:getStat(name, default, light)
+    local dmg = super.getStat(self, name, default, light)
+    
+    if (Game.battle and Game.battle.headwind > 0) and name == "attack" then
+        dmg = math.floor(dmg * 1.25)
+    end
+    
+    return dmg
 end
 
 function character:getElements()

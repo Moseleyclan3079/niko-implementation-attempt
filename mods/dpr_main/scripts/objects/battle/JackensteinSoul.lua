@@ -11,7 +11,6 @@ function JackensteinSoul:init(x,y,color)
     self.graze_sprite.width = self.graze_sprite.texture:getWidth()
     self.graze_sprite.height = self.graze_sprite.texture:getHeight()
     self.graze_collider = CircleCollider(self, 0, 0, 12 * self.graze_size_factor)
-    self.glow_texture = Assets.getTexture("player/"..Game:getSoulPartyMember():getSoulFacing().."/heart_dodge_small")
 end
 
 function JackensteinSoul:update()

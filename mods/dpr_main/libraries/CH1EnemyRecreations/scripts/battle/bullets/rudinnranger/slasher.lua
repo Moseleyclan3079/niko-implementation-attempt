@@ -8,7 +8,7 @@ function Slasher:init(x, y)
 
 	self:setOrigin(0.5, 1)
 
-    self.inv_timer = 60/30
+    self.inv_frames = 60
     self.tp = 2.4
     self.time_bonus = 2
 	

@@ -57,11 +57,16 @@ function item:init()
         noel = "Can't take em with me.",
         ["jamm+marcy"] = "You look like a real big shot with those, Marcy!",
         ceroba = "Everything looks ugly now.", -- she's not a fan of the pink-yellow filter
+        len = "This is the real deal.",
     }
 end
 
-function item:applyMoneyBonus(gold)
-    return gold * 1.3
+function item:calculateBattleMoney(money, base_money, num_equipped)
+    return money * (1 + (0.3 * num_equipped))
+end
+
+function item:calculateBattleMoneyPriority()
+    return 0.4
 end
 
 return item

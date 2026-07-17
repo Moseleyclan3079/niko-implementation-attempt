@@ -12,6 +12,9 @@ function DarkPowerMenu:init()
 	end
     self.font = Assets.getFont("main")
 
+    self.layer = WORLD_LAYERS["ui"]
+    self:setParallax(0, 0)
+
     self.ui_move = Assets.newSound("ui_move")
     self.ui_select = Assets.newSound("ui_select")
     self.ui_cant_select = Assets.newSound("ui_cant_select")
@@ -284,6 +287,26 @@ function DarkPowerMenu:selectParty(target_type, spell)
     end)
 end
 
+function DarkPowerMenu:canCast(spell)
+    -- Check if we can use overworld spells
+    if not Game:getConfig("overworldSpells") then
+        return false
+    end
+
+    -- Okay, do we actually have a world usage?
+    if not spell:hasWorldUsage(self.party:getSelected()) then
+        return false
+    end
+
+    -- Do we have enough tension?
+    if Game:getTension() < spell:getTPCost(self.party:getSelected()) then
+        return false
+    end
+
+    -- Yes to everything!
+    return true
+end
+
 function DarkPowerMenu:draw()
     love.graphics.setFont(self.font)
 
@@ -411,7 +434,7 @@ function DarkPowerMenu:drawSpells()
         end
         if resource == "tension" then
             --love.graphics.print("TP", caption_x, caption_y + (offset * 25))
-            love.graphics.print(tostring(spell:getTPCost(self.party:getSelected())).."%", tp_x, tp_y + (offset * 25))
+            love.graphics.print(spell:getPowerMenuTPDisplay(self.party:getSelected()), tp_x, tp_y + (offset * 25))
         elseif resource == "mana" then
             --love.graphics.print("MP", caption_x, caption_y + (offset * 25))
             love.graphics.print(tostring(spell:getMPCost(self.party:getSelected())), tp_x, tp_y + (offset * 25))

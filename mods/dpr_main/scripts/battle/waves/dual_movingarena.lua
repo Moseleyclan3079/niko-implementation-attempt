@@ -40,7 +40,7 @@ function Dual_MovingArena:onStart()
 
 function self.bullet:onCollide(soul)
 	if not Game.battle.superpower then
-		if soul.inv_timer == 0 then
+		if Game.inv_frames <= 0 then
 			self:onDamage(soul)
 		end
 
@@ -116,7 +116,7 @@ function Dual_MovingArena:update()
 
 function self.bullet:onCollide(soul)
 	if not Game.battle.superpower then
-		if soul.inv_timer == 0 then
+		if Game.inv_frames <= 0 then
 			self:onDamage(soul)
 		end
 

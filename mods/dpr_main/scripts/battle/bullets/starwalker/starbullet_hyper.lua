@@ -10,7 +10,7 @@ function StarBulletHyper:init(x, y)
     self.grazed = true
     self.graphics.spin = math.rad(45 / 4)
 
-    self.inv_timer = 1 / 30
+    self.inv_frames = 1
     self.destroy_on_hit = false
 
     self.timer = 0
@@ -59,7 +59,7 @@ function StarBulletHyper:destroy()
     for i = 1, 10 do
         local offset = self.dir + ((360/10) * i)
         local star = self.wave:spawnBullet(self.starwalker:makeBullet(self.x, self.y))
-        star.inv_timer = 10/30
+        star.inv_frames = 10
         star:setScale(1)
         star.physics.speed = 1.6
         star.physics.friction = -0.3
@@ -72,7 +72,7 @@ function StarBulletHyper:destroy()
     for i = 1, 10 do
         local offset = self.dir + ((360/10) * i)
         local star = self.wave:spawnBullet(self.starwalker:makeBullet(self.x, self.y))
-        star.inv_timer = 10/30
+        star.inv_frames = 10
         star:setScale(1)
         star.physics.speed = 0.8
         star.physics.friction = -0.24

@@ -78,6 +78,7 @@ local hub = {
 
             -- If we have Susie, play a cutscene
             local susie = cutscene:getCharacter("susie")
+            local len = cutscene:getCharacter("len")
             if susie then
                 -- Detach camera and followers (since characters will be moved)
                 cutscene:detachCamera()
@@ -160,6 +161,76 @@ local hub = {
 
                     cutscene:showNametag("Susie")
                     cutscene:text("* Guess not.", "nervous")
+
+                    if len then
+                        cutscene:textTagged("* My turn!", "neutral", "len")
+                        
+                        susie:resetSprite()
+
+                        cutscene:walkTo(susie, susie.x - 80, susie.y, 0.75, "right")
+
+                        -- Walk back,
+                        cutscene:wait(cutscene:walkTo(len, x, y + 60, 0.5, "up", true))
+                        -- and run forward!
+                        Assets.playSound("laz_c_len")
+                        cutscene:wait(cutscene:walkTo(len, x, y + 20, 0.2))
+                        
+                        -- Slam!!
+                        Assets.playSound("impact")
+                        Assets.playSound("hurt")
+                        len:shake(4)
+                        len:setSprite("fell")
+
+                        local lenParty = len:getPartyMember()
+                        if lenParty then
+                            lenParty.health = lenParty.health - 1
+                            if lenParty.health <= 0 then
+                                cutscene:wait(2)
+                                cutscene:textTagged("* ow.", "neutral_closed", "len")
+                                Assets.playSound("hurt")
+                                len:shake(5)
+                                
+                                cutscene:textTagged("* I... [wait:5]i really shouln't have... [wait:5]done that...", "nervous_closed_b", "len")
+
+                                -- Susie notices Len's damage
+                                susie:alert()
+                                cutscene:wait(0.4)
+                                cutscene:textTagged("* Oh crap, are you alright?[wait:5] here.", "surprise_frown", "susie")
+
+                                -- Susie walks up to Len
+                                cutscene:wait(cutscene:walkTo(susie, susie.x + 50, susie.y, 0.25, "right"))
+
+                                -- Susie heals em up
+                                susie:setAnimation("kneel_heal_alt_right")
+                                cutscene:wait(1)
+                                len:flash()
+                                Game.world:heal(lenParty, math.ceil(lenParty:getStat("health") * 0.7))
+                                cutscene:wait(1)
+                                len:resetSprite()
+                                len:setFacing("down")
+                                Assets.playSound("wing")
+                                cutscene:textTagged("* I feel... [wait:8]better? [wait:5]like better than better actually, [wait:5]i feel incredible!", "nervous", "len")
+                                susie:setSprite("away")
+                                Assets.playSound("wing")
+                                cutscene:textTagged("* Oh[wait:5] uh, [wait:5]thanks. i've been practicing...", "intense_smile", "susie")
+                                susie:setSprite("away_turn")
+                                cutscene:textTagged("* So, shall we keep moving then?", "neutral", "len")
+                                cutscene:textTagged("* Yeah, lets go.", "smile", "susie")
+                                susie:resetSprite()
+                                susie:setFacing("down")
+                                cutscene:textTagged("* Altough... [wait:5]uh... [wait:5]maybe try not dying on the way...", "nervous_smile", "susie")
+                                len:resetSprite()
+                            else
+                                -- Slide back a bit
+                                cutscene:slideTo(len, x, y + 40, 0.1)
+                                cutscene:wait(1.5)
+
+                                -- Worth it.
+                                cutscene:textTagged("* Worth it.", "happy", "len")
+                                -- len:resetSprite() -- I find it funnier if it doesn't reset the sprite lol
+                            end
+                        end
+                    end
                 end
                 cutscene:hideNametag()
 
@@ -183,6 +254,114 @@ local hub = {
         local wallnpc = cutscene:getCharacter('wall')
         cutscene:setSpeaker(wallnpc)
         cutscene:text("* I Am the Wall Guardian.[wait:5]\n* This Wall is Off Limits for you\nno-good wall slammers.")
+    end,
+
+    len = function(cutscene)
+        local lenNpc = cutscene:getCharacter('len')
+        local lenParty = Game.world:getPartyCharacterInParty("len")
+
+        if lenParty then
+            cutscene:detachFollowers()
+            cutscene:walkTo(lenParty, 675, 534, 1, "left")
+            cutscene:walkTo(lenNpc, 590, 534, 1, "right")
+            cutscene:wait(1)
+            local rng = MathUtils.randomInt(1,11)
+            if rng ~= 1 then
+                cutscene:textTagged("* Woah,[wait:5] that's me?", "neutral", lenNpc)
+                cutscene:textTagged("* Yeah,[wait:5] im you.", "neutral_b", lenParty)
+                cutscene:textTagged("* Wait,[wait:5] but i am me!", "nervous", lenNpc)
+                cutscene:textTagged("* And i am you.", "nervous_closed_b", lenParty)
+            else
+                cutscene:wait(1)
+                local slipOff = Game:getFlag("lenSlippedLore")
+                if not slipOff then
+                    Game:setFlag("lenSlippedLore", true)
+                    cutscene:textTagged("[noskip]* Heh,[wait:5] you're like my copycat-", "neutral_b", lenParty, {auto = true})
+                    Assets.playSound("wing")
+                    lenNpc:setAnimation("scream/right")
+                    lenNpc:shake(5)
+                    cutscene:textTagged("* STOP!", "dumb", lenNpc)
+                    cutscene:textTagged("* YOU CAN'T SAY THAT!", "neutral_closed", lenNpc)
+                    lenNpc:resetSprite()
+                    cutscene:textTagged("* !", "suprise_b", lenParty)
+                    cutscene:textTagged("* Right,[wait:5] sorry.", "nervous_closed_b", lenParty)
+                else
+                    cutscene:textTagged("* Heh,[wait:5] you're like my...[wait:5][face:nervous_closed_b] clone.", "neutral", lenParty)
+                    cutscene:textTagged("* Im a copy,[wait:5] technically.", "neutral", lenNpc)
+                    cutscene:textTagged("* Can't you be both?", "neutral_b", lenParty)
+                    cutscene:textTagged("* A clone-copy?", "suprise", lenNpc)
+                    cutscene:textTagged("* A Clopy.", "happy_b", lenParty)
+                end
+            end
+
+            cutscene:walkTo(lenNpc, lenNpc.init_x, lenNpc.init_y, 0.4)
+            cutscene:attachFollowers()
+            cutscene:wait(1)
+            lenNpc:resetSprite()
+            lenNpc:setFacing("down")
+            return
+        end
+        
+        local susie = cutscene:getCharacter("susie")
+        cutscene:setSpeaker(lenNpc)
+
+        local met_len = Game:getFlag("lenMet")
+        if not met_len then
+            Game:setFlag("lenMet", true)
+
+            cutscene:textTagged("* Oh, [wait:5]Hello there!", "happy", lenNpc)
+            cutscene:textTagged("* My DLC isn't finished yet, [wait:5][face:happy]so you can have a free party member for now.", "neutral_closed", lenNpc)
+
+            if susie then
+                cutscene:textTagged("* Uh, what's a DLC?", "nervous_smile", "susie")
+                cutscene:textTagged("* Oh uh...[wait:5] don't worry about it.", "nervous", lenNpc)
+            end
+        end
+
+        local lenFirstJoin = Game:getFlag("lenFirstJoin", true)
+        local music = Game.world.music
+        if lenFirstJoin then
+            cutscene:textTagged("* So what do you say?", "neutral", lenNpc)
+            local c = cutscene:choicer({"Sure, join us!", "No thanks."})
+            if c == 2 then
+                cutscene:textTagged("* Okay then,[wait:5] i'll be here if you change your mind.", "neutral", lenNpc)
+                return
+            end
+
+            Game:setFlag("lenFirstJoin", false)
+            cutscene:textTagged("* Neat!", "happy", "len")
+
+            music:pause()
+            local music_inst = Music()
+            cutscene:after(function() music_inst:remove() end)
+
+            music_inst:play("deltarune/fanfare", 1, 1, false)
+            cutscene:text("[noskip][speed:0.1]* (Len has joined the party!)[wait:2]", nil, {auto = true, wait = false})
+            cutscene:wait(10)
+            music_inst:stop()
+        else
+            cutscene:textTagged("* Oh,[wait:5] hi there.", "neutral", lenNpc)
+            local c = cutscene:choicer({"Join us!", "Bye."})
+            if c == 2 then
+                cutscene:textTagged("* See ya.", "neutral", lenNpc)
+                return
+            end
+
+            cutscene:textTagged("* Sure,[wait:5] why not?", "neutral", "len")
+            music:pause()
+            Assets.playSound("charjoined")
+            cutscene:text("[noskip]* (Len has joined the party.)[wait:9]", nil, {auto = true, wait = false})
+            cutscene:wait(3)
+        end
+        
+        local lenParty = Game:getPartyMember("len")
+        table.insert(Game.party, lenParty)
+        local follower = Game.world:spawnFollower(lenParty:getActor(), { party = lenParty.id, x = lenNpc.x, y = lenNpc.y })
+        follower:setFacing("down")
+        lenNpc:remove()
+        cutscene:attachFollowers()
+        cutscene:wait(1)
+        music:resume()
     end,
 
     nokia_dog = function(cutscene, event)
@@ -250,6 +429,11 @@ local hub = {
             item2 = "white_ribbon"
         },
         {
+            result = "twinribbon2",
+            item1 = "blueribbon",
+            item2 = "redribbon"     -- I noticed how these two items are inconsistent with white and pink, that's why I did this :P
+        },
+        {
             result = "spikeband",
             item1 = "glowwrist",
             item2 = "ironshackle"
@@ -260,14 +444,54 @@ local hub = {
             item2 = "tensionbit"
         },
         {
+            result = "twistedswd",
+            item1 = "thornring",
+            item2 = "purecrystal"
+        },
+        {
+            result = "monarchrbn",
+            item1 = "scarfmark",
+            item2 = "princessrbn"
+        },
+        {
+            result = "truetie",
+            item1 = "tennatie",
+            item2 = "frayedbowtie"
+        },
+        {
+            result = "tvdinner",
+            item1 = "tvslop",
+            item2 = "tvslop"
+        },
+        {
+            result = "deluxedinner",
+            item1 = "tvdinner",
+            item2 = "tvdinner"
+        },
+        {
+            result = "punchbowl",
+            item1 = "scarlixir",
+            item2 = "powerband"
+        },
+        {
+            result = "tensionmax",
+            item1 = "scarlixir",
+            item2 = "mysticband"
+        },
+        {
+            result = "dogwidow",
+            item1 = "goldwidow",
+            item2 = "dogdollar"
+        },
+        {
             result = "tensiontie",
             item1 = "tennatie",
             item2 = "tentaser"
         },
         {
-            result = "triribbon",
+            result = "quadribbon",
             item1 = "twinribbon",
-            item2 = "princessrbn",
+            item2 = "twinribbon2",
         },
         {
             result = "royalpin",
@@ -313,6 +537,21 @@ local hub = {
             result = "kindnessaxe",
             item1 = "friend_buster",
             item2 = "justiceaxe"
+        },
+        {
+            result = "bug",
+            item1 = "paper_hat",
+            item2 = "glitchswd"
+        },
+        {
+            result = "broken_bandana",
+            item1 = "bug",
+            item2 = "fluffy_bandana"
+        },
+        {
+            result = "flurrier_bandana",
+            item1 = "bin_weapon",
+            item2 = "broken_bandana"
         },
     }
     Kristal.callEvent("setItemsList", items_list)
